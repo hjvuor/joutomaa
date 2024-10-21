@@ -1,0 +1,12 @@
+name = "joutomaa"
+compatibility_date = "2024-10-21"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+
+# Bind a D1 database. D1 is Cloudflare’s native serverless SQL database.
+# Docs: https://developers.cloudflare.com/pages/functions/bindings/#d1-databases
+[[d1_databases]]
+binding = "MY_DB"
+database_name = "joutomaa-db"
+database_id = "63f25171-8607-4b48-9315-f315c47aaff7"
