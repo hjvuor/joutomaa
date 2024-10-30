@@ -1,10 +1,13 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { getRequestContext } from '@cloudflare/next-on-pages'
+import { //NextRequest, 
+    NextResponse } from 'next/server'
+//import { getRequestContext } from '@cloudflare/next-on-pages'
 
 export const runtime = 'edge'
 
-export async function GET(request: NextRequest) {
-    let responseJson = {posts: [
+export async function GET(
+    //request: NextRequest
+) {
+    const responseJson = {posts: [
         {
             "id": "post-001",
             "title": "Avaruusolentojen Salattu Historia",
@@ -86,7 +89,7 @@ export async function GET(request: NextRequest) {
             "content": "Jos avaruusolennot lähettäisivät viestin Maahan, olisimmeko valmiita vastaanottamaan ja ymmärtämään sen? Kielitieteilijät ja tutkijat ovat jo pitkään pohtineet, millä tavoin vieraat sivilisaatiot voisivat viestiä kanssamme. Tässä artikkelissa tarkastellaan teorioita ja teknologioita, jotka voisivat mahdollistaa viestinnän ulkoavaruuden olentojen kanssa."
         }
     ]}
-    console.log(request)
+    //console.log(request)
 
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
@@ -100,5 +103,5 @@ export async function GET(request: NextRequest) {
   // const suffix = await myKv.get('suffix')
   // responseText += suffix
 
-  return NextResponse.json({moro:"j"})
+  return NextResponse.json(responseJson)
 }

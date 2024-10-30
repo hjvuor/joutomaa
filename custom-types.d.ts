@@ -1,3 +1,5 @@
+
+
 declare global {
     interface blogPost {
         id: string,
@@ -8,5 +10,7 @@ declare global {
         content: string
     }
 }
+
+
 
 export default global

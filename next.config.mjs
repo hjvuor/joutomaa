@@ -1,10 +1,13 @@
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
-
- if (process.env.NODE_ENV === 'development') {
-   await setupDevPlatform();
- }
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+        port: '',
+      },
+    ],
+  },
+}
 
 export default nextConfig;

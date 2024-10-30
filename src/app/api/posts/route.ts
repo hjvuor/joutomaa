@@ -1,10 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { getRequestContext } from '@cloudflare/next-on-pages'
+import { 
+    //NextRequest, 
+    NextResponse } from 'next/server'
+//import { getRequestContext } from '@cloudflare/next-on-pages'
 
 export const runtime = 'edge'
 
-export async function GET(request: NextRequest) {
-    let responseJson = {posts: [
+export async function GET(
+    //request: NextRequest
+    ) {
+    const responseJson = {posts: [
         {
             "id": "post-001",
             "title": "Avaruusolentojen Salattu Historia",
