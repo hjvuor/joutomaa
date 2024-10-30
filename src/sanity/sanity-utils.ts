@@ -14,7 +14,8 @@ export async function getPosts() {
             author,
             body,
             "imageUrl": mainImage.asset->url,
-            url
+            url,
+           publishedAt
         }`
   );
 }
@@ -32,7 +33,7 @@ export async function getPostBySlug(slug: string) {
             body,
             "imageUrl": mainImage.asset->url,
             url,
-            "date": publishedAt
+            publishedAt
         }`,
         { slug }
   );

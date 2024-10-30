@@ -8,8 +8,6 @@ import Feissi from "@/../public/feissi.png";
 
 export default function Home() {
   const [playSubmitSound, setPlaySubmitSound] = useState(false);
-  const size = 100;
-  const color = "green";
   return (
     <div
       className="h-screen flex items-center justify-center text-green-600 max-w-full"

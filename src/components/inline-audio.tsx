@@ -1,5 +1,4 @@
 import config from "@/sanity/config/client-config"
-import { ConfigContext } from "sanity"
 
 type audioAsset = {
     asset: {

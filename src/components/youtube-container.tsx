@@ -9,12 +9,13 @@ export const YoutubeComponent = ({
   const { url } = value;
   const id = url.split("=").slice(-1);
   return (
-    <div className="h-[400] w-full justify-items-center">
+    <div className="w-full justify-items-center pb-6">
       <iframe
-        width={600}
-        height={400}
+        className="w-full aspect-video"
         src={`https://www.youtube.com/embed/${id}`}
       ></iframe>
+      { isInline }
     </div>
+    
   );
 };

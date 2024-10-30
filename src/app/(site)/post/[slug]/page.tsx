@@ -21,7 +21,7 @@ export default async function PostPage({
   //Date formatting
   const date = new Intl.DateTimeFormat('fi-FI', {
     dateStyle: 'long',
-  }).format(Date.parse(post.date))
+  }).format(Date.parse(post.publishedAt))
 
   const components: PortableTextComponents = {
     /* block: {
@@ -57,7 +57,7 @@ export default async function PostPage({
         />
         </Link>
       </div>
-      <div className="prose prose-lg prose-headings:text-green-600 prose-p:text-green-600">
+      <div className="prose prose-lg prose-headings:text-green-600 prose-headings:font-semibold prose-p:text-green-600">
         <PortableText value={post.body} components={components}/>
       </div>
     </div>

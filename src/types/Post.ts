@@ -1,4 +1,5 @@
 import { PortableTextBlock } from "sanity"
+import { ImageAsset } from "sanity"
 
 export type Post = {
     _id: number,
@@ -6,7 +7,7 @@ export type Post = {
     slug: string,
     metadata: string,
     body: PortableTextBlock[],
-    mainImage: any,
+    mainImage: ImageAsset,
     imageUrl: string
     author: string,
     tags: string[],

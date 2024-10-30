@@ -1,4 +1,7 @@
 import { PlayIcon, UploadIcon } from '@sanity/icons'
+import { Rule } from 'sanity';
+import { Slug } from 'sanity';
+
 
 const post = {
   name: "post",
@@ -9,13 +12,13 @@ const post = {
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "metadata",
       title: "Metadata",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "slug",
@@ -24,15 +27,15 @@ const post = {
       options: {
         source: "title",
         unique: true,
-        slugify: (input: any) => {
+        slugify: (input: string) => {
           return input
             .toLowerCase()
             .replace(/\s+/g, "-")
             .replace(/[^\w-]+/g, "");
         },
       },
-      validation: (Rule: any) =>
-        Rule.required().custom((fields: any) => {
+      validation: (rule: Rule) =>
+        rule.required().custom((fields: Slug) => {
           if (
             fields?.current !== fields?.current?.toLowerCase() ||
             fields?.current.split(" ").includes("")
@@ -46,12 +49,12 @@ const post = {
       name: "tags",
       title: "Tags",
       type: "array",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
       of: [
         {
           type: "string",
-          validation: (Rule: any) =>
-            Rule.custom((fields: any) => {
+          validation: (rule: Rule) =>
+            rule.custom((fields: string) => {
               if (
                 fields !== fields.toLowerCase() ||
                 fields.split(" ").includes("")
@@ -67,7 +70,7 @@ const post = {
       name: "author",
       title: "Author",
       type: "string",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "mainImage",
@@ -82,7 +85,7 @@ const post = {
       name: "publishedAt",
       title: "Published at",
       type: "datetime",
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
     {
       name: "body",
@@ -123,7 +126,7 @@ const post = {
       }
 
     ],
-      validation: (Rule: any) => Rule.required(),
+      validation: (rule: Rule) => rule.required(),
     },
   ],
 
@@ -133,7 +136,7 @@ const post = {
       author: "author",
       media: "mainImage",
     },
-    prepare(selection: any) {
+    prepare(selection: {author: string}) {
       const { author } = selection;
       return Object.assign({}, selection, {
         subtitle: author && `by ${author}`,
