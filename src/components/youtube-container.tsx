@@ -1,4 +1,11 @@
-export const YoutubeComponent = ({ value, isInline }) => {
+interface ytType {
+  url: string
+}
+
+export const YoutubeComponent = ({ 
+    value, 
+    isInline 
+  } : {value: ytType, isInline: boolean}) => {
   const { url } = value;
   const id = url.split("=").slice(-1);
   return (
