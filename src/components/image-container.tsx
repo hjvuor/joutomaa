@@ -4,8 +4,15 @@ import { createClient } from "next-sanity"
 import config from "@/sanity/config/client-config"
 import Image from "next/image"
 
+import { SanityImageSource } from "@sanity/asset-utils"
 
-export const ImageComponent = ({value, isInline}) => {
+
+export const ImageComponent = ({
+  value, 
+  isInline}: {
+    value: SanityImageSource, 
+    isInline: boolean
+  }) => {
     const {width, height} = getImageDimensions(value)
     return (
       <div style={{width: '100%', height: '100%', position: 'relative'}} className="min-h-96 pb-32 z-0">
@@ -16,7 +23,7 @@ export const ImageComponent = ({value, isInline}) => {
           .fit('max')
           .auto('format')
           .url()}
-        alt={value.alt || ' '}
+        alt={'alt text'}
         style={{
           // Display alongside text if image appears inside a block text span
           display: isInline ? 'inline-block' : 'block',
