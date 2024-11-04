@@ -4,27 +4,14 @@ import Link from "next/link";
 import LiekkiGif from "@/../public/liekki.gif";
 import AudioPlayer from "@/components/audioPlayer";
 import { useState } from "react";
-import Feissi from "@/../public/feissi.png";
+import Feissi from "@/../public/hUrjuus.png";
 
-export default function Home() {
-  const [playSubmitSound, setPlaySubmitSound] = useState(false);
+import {Rubik_Glitch} from "next/font/google"
+const font = Rubik_Glitch({weight:["400"], subsets: ["latin"] });
+
+const LiekkiComponent = () => {
   return (
-    <div
-      className="h-screen flex items-center justify-center text-green-600 max-w-full"
-      onClick={() => setPlaySubmitSound(true)}
-    >
-      <div className="h-2/4 min-h-full  bg-red-100"></div>
-      <Link className="justify-items-center" href="/feed">
-        
-        <h1 className="text-6xl font-black italic mb-8">JOUTOMAA</h1>
-        <Image
-          className="animate-spin"
-          src={Feissi}
-          width={100}
-          height={100}
-          alt="liekki"
-        />
-      </Link>
+    <div>
       <Image
         className="fixed -bottom-5"
         style={{
@@ -45,6 +32,31 @@ export default function Home() {
         height={200}
         alt="liekki"
       />
+    </div>
+  )
+}
+
+export default function Home() {
+  const [playSubmitSound, setPlaySubmitSound] = useState(false);
+  return (
+    <div
+      className="h-screen flex items-center justify-center text-green-600 max-w-full"
+      onClick={() => setPlaySubmitSound(true)}
+    >
+      <div className="h-2/4 min-h-full  bg-red-100"></div>
+      <Link className="justify-items-center" href="/feed">
+        
+        <h1 className={`text-6xl italic mb-8 ${font.className}`}>JOUTOMAA</h1>
+        <Image
+          className="animate-ping"
+          src={Feissi}
+          width={100}
+          height={100}
+          alt="liekki"
+        />
+      </Link>
+      
+      
 
       <AudioPlayer
         src="/bruh.mp3"

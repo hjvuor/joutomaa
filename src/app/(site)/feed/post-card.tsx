@@ -1,9 +1,8 @@
-import { Post } from "@/types/Post";
+import { Post } from "@/types/interface";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function PostCard({post} : {post: Post}) {
-  console.log(post.imageUrl)
   const isImage = !post.imageUrl === false
 
   //Date formatting
@@ -13,7 +12,7 @@ export default function PostCard({post} : {post: Post}) {
   
   return (
 
-    <div className="p-1 pb-5 mb-12 xl:max-w-prose border-b border-gray-600">
+    <div className="p-1 pb-8 mb-12 xl:max-w-prose ">
       <Link className="hover:bg-gray-900 " href={`/post/${post.slug}`}>
       {isImage &&
         <div style={{width: '100%', height: '100%', position: 'relative'}} className="min-h-64 pb-32">
@@ -25,10 +24,15 @@ export default function PostCard({post} : {post: Post}) {
         />
       </div>}
       
-      <h1 className="text-3xl font-bold">{post.title}</h1>
+      <h1 className="text-3xl font-semibold italic">{post.title}</h1>
+      <div className="flex justify-between">
+        <p className="text-green-700 pl-1 italic">{post.author}</p>
+        <p className="italic text-green-700 pr-1">{date}</p>
+      </div>
+
       </Link>
       
-      <p>{date} - {post.author}</p>
+      
     </div>
 
   );

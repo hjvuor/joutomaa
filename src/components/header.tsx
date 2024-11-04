@@ -2,6 +2,12 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { Rubik_Glitch } from "next/font/google";
+
+const rubik = Rubik_Glitch({
+  weight: ["400"],
+  subsets: ["latin"]
+})
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,7 +21,7 @@ export default function Header() {
         <header className="sticky top-0 left-0 container mx-auto shadow-md border-b border-white z-50">
           {/*header content container*/}
           <div className="max-w-screen-2xl flex justify-between items-center text-green-600 p-4">
-          <div className="text-2xl font-black italic">
+          <div className={`text-2xl font-black italic ${rubik.className}`}>
             <Link href="/">JOUTOMAA</Link>
           </div>
           {/* Desktop */}

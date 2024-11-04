@@ -1,11 +1,9 @@
-interface ytType {
-  url: string
-}
+import { YoutubeEmbed } from "@/types/interface";
 
 export const YoutubeComponent = ({ 
     value, 
     isInline 
-  } : {value: ytType, isInline: boolean}) => {
+  } : {value: YoutubeEmbed, isInline: boolean}) => {
   const { url } = value;
   const id = url.split("=").slice(-1);
   return (

@@ -16,7 +16,7 @@ export async function getPosts() {
             "imageUrl": mainImage.asset->url,
             url,
            publishedAt
-        }`
+        } | order(publishedAt desc)`
   );
 }
 

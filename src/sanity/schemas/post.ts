@@ -96,7 +96,16 @@ const post = {
           type: "block" 
         },
         {
-          type: "image"
+          name: 'image',
+          type: "image",
+          title: 'Image',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt Text'
+            }
+          ]
         },
         {
           name: 'audio',

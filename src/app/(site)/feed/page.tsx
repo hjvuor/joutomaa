@@ -1,5 +1,5 @@
 import { getPosts } from "@/sanity/sanity-utils";
-import { Post } from "@/types/Post"
+import { Post } from "@/types/interface"
 
 import PostCard from "./post-card";
 
