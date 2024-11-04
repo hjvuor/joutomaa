@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import LiekkiGif from "@/../public/liekki.gif";
+//import LiekkiGif from "@/../public/liekki.gif";
 import AudioPlayer from "@/components/audioPlayer";
 import { useState } from "react";
 import Feissi from "@/../public/hUrjuus.png";
@@ -9,7 +9,7 @@ import Feissi from "@/../public/hUrjuus.png";
 import {Rubik_Glitch} from "next/font/google"
 const font = Rubik_Glitch({weight:["400"], subsets: ["latin"] });
 
-const LiekkiComponent = () => {
+/* const LiekkiComponent = () => {
   return (
     <div>
       <Image
@@ -34,7 +34,7 @@ const LiekkiComponent = () => {
       />
     </div>
   )
-}
+} */
 
 export default function Home() {
   const [playSubmitSound, setPlaySubmitSound] = useState(false);
