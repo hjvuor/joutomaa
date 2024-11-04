@@ -1,6 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import Sydän from "@/../public/Sydän.png"
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Info"
+}
 
 export default function About() {
   return (

@@ -1,14 +1,35 @@
-import { getPostBySlug } from "@/sanity/sanity-utils";
+import { getPostBySlug, getPosts } from "@/sanity/sanity-utils";
 import { PortableText, PortableTextComponents } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
-
 import { notFound } from "next/navigation";
-
 import { ImageComponent } from "@/components/image-container";
 import { AudioComponent } from "@/components/inline-audio";
 import { YoutubeComponent } from "@/components/youtube-container";
+import { Post } from "@/types/interface";
 
+// generateMetadata function
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPostBySlug(params.slug)
+  return ({
+    title: post.title,
+    metadata: post.metadata
+  })
+}
+
+//generate static urls from post slugs
+export async function generateStaticParams() {
+  const posts = await getPosts()
+  return posts.map((post: Post) => ({
+    slug: post.slug
+  }))
+}
+
+//Main post page
 export default async function PostPage({
   params,
 }: {
@@ -43,24 +64,19 @@ export default async function PostPage({
         <h1 className="text-4xl xl:text-6xl pb-2 font-semibold italic">
           {post.title}
         </h1>
-        <p className="text-xs text-green-700">tekijä: {post.author}</p>
+        <p className="text-xs text-green-700">{post.author}</p>
         <p className="text-xs text-green-700">{date}</p>
       </div>
 
-      { isImage && <div
-        style={{ width: "100%", height: "100%", position: "relative" }}
-        className="min-h-96 pb-32 z-0"
-      >
-        <Link href={post.imageUrl}>
+      { isImage && <div className="min-h-96 pb-6 z-0 justify-items-center">
           <Image
-            alt="Mountains"
+            alt="Main image"
             src={post.imageUrl}
-            layout="fill"
-            objectFit="contain"
+            width={400}
+            height={400}
           />
-        </Link>
       </div>}
-      <div className="prose prose-lg prose-headings:text-green-600 prose-headings:font-semibold prose-p:text-green-600">
+      <div className="mx-auto justify-items-center prose prose-lg prose-headings:text-green-600 prose-headings:font-semibold prose-p:text-green-600 ">
         <PortableText value={post.body} components={components} />
       </div>
     </div>

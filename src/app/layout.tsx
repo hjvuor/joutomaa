@@ -5,8 +5,15 @@ import "./globals.css";
 const font = Exo_2({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "JOUTOMAA",
-  description: "Joutomaa blogi t joutoväki",
+  title: {
+    default: "Joutomaa",
+    template: "%s | Joutomaa",
+  },
+  description: "Joutomaa on arvoton eli maatalouteen ja muuhun taloudelliseen" +
+          "hyötykäyttöön sopimaton maa-alue. Metsätaloudessa joutomaa" +
+          "määritellään sellaiseksi alueeksi, jossa puun kasvu on alle 0.1 m3" +
+          "hehtaaria kohti vuodessa. Käytännössä tämä tarkoittaa aavikoita," +
+          "hietikoita ja suoalueita."
 };
 
 export default function RootLayout({
