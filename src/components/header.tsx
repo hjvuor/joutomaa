@@ -43,7 +43,7 @@ export default function Header() {
             <div className="bg-black fixed flex right-2 top-20 flex-col z-30 px-3 text-xl">
               <Link href="/" className="hover:bg-gray-700 px-3 py-2 border-b border-green-600">etusivulle</Link>
               <Link onClick={closeMenu} href="/feed" className="px-3 py-2 border-b border-green-600">fiidi</Link>
-              <Link onClick={closeMenu} href="/about" className="px-2 pr-32 py-2">inffot</Link>
+              <Link onClick={closeMenu} href="/about" className="px-3 pr-32 py-2">inffot</Link>
             </div>
           )}
           </div>

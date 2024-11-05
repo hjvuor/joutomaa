@@ -21,7 +21,7 @@ export const AudioComponent = ({
   return (
     <div className="justify-items-center">
       <p>{value.title}</p>
-      <audio className="w-2/4" controls src={audioUrl}></audio>
+      <audio className="" controls src={audioUrl}></audio>
       { isInline }
     </div>
   ) 
